@@ -13,9 +13,8 @@ namespace AppDomainTest
     public class CollectorService
     {
         private AppDomain serviceAppDomain = null;
-        //   private static readonly log4net.ILog log = log4net.LogManager.GetLogger("C:\\install\\mylog.txt");
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public void DoSomething()
         {
             BasicConfigurator.Configure();
@@ -33,7 +32,7 @@ namespace AppDomainTest
 
             serviceAppDomain = AppDomain.CreateDomain("test", evidence, setup);
             log.Error("Hm, error");
-          //  serviceAppDomain.UnhandledException += CurrentDomain_UnhandledException; Error?
+          //  serviceAppDomain.UnhandledException += CurrentDomain_UnhandledException;
 
             cs = (AnotherClass)serviceAppDomain.CreateInstanceAndUnwrap(typeof(AnotherClass).Assembly.FullName, typeof(AnotherClass).FullName);
             cs.DoIt();
