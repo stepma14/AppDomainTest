@@ -18,7 +18,7 @@ namespace AppDomainTest
             Console.WriteLine("Base directory is: {0}", AppDomain.CurrentDomain.BaseDirectory);
 
             Console.Write("Im doing it");
-            log.Info("im doing it, chill....");
+            log.Debug("im doing it, chill....");
             YetAnother.JustDoIt();
         }
     }

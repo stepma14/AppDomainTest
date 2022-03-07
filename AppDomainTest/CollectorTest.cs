@@ -8,18 +8,18 @@ using NUnit.Framework;
 namespace AppDomainTest
 {
     
-    internal class MyTest : MyTestBase
+    internal class CollectorTest : CollectorTestsBase
     {
 
         [Test]
-        public void SomeStuff()
+        public void RunCollector()
         {
             Console.WriteLine("\nDomain in MyTest.cs");
             Console.WriteLine("Object is executing in AppDomain \"{0}\"",
             AppDomain.CurrentDomain.FriendlyName);
             Console.WriteLine("Base directory is: {0}", AppDomain.CurrentDomain.BaseDirectory);
 
-            MyStuff();
+            StartCollector();
 
         }
     }

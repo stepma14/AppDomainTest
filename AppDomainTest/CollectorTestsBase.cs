@@ -8,13 +8,11 @@ using NUnit.Framework;
 namespace AppDomainTest
 {
    [TestFixture]
-    internal class MyTestBase //tohle je jako CollectorTestsBase
+    public class CollectorTestsBase
     {
+      
+        CollectorService cs = new CollectorService();
         //tohle je v podstate protected void StartCollector() => _collectorService.RunInConsole(false); z CollectorTestsBase
-        public void MyStuff()
-        {
-            CollectorService cs = new CollectorService();
-            cs.DoSomething();
-        }
+        protected void StartCollector() => cs.DoSomething();
     }
 }
